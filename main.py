@@ -10,7 +10,7 @@ from automata.pda.dpda import DPDA
 
 app = FastAPI()
 
-
+# deterministic pushdown automaton (stack)
 @app.post("/dpda")
 async def dpda(request: Request):
     info = await request.json()
@@ -56,7 +56,7 @@ async def dpda(request: Request):
     else:
         return {"accepted": False, "input": input_w}
 
-
+# non deterministic automaton
 @app.post("/nfa")
 async def nfa(request: Request):
     info = await request.json()
@@ -93,7 +93,7 @@ async def nfa(request: Request):
     else:
         return {"accepted": False, "input": input_w}
 
-
+# deterministic finite automaton
 @app.post("/dfa")
 async def dfa(request: Request):
     info = await request.json()
